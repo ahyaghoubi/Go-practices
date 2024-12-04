@@ -3,25 +3,28 @@ package main
 import "fmt"
 
 func main() {
-	var revenue float64
-	var expenses float64
-	var taxRate float64
+	revenue := printAndAssign("Enter the revenue amount: ")
+	expenses := printAndAssign("Enter the expenses amount: ")
+	taxRate := printAndAssign("Enter the tax rate: ")
 
-	fmt.Print("Enter the revenue amount: ")
-	fmt.Scan(&revenue)
+	earningBeforeTax, earningAfterTax, ratio := Calculator(revenue, expenses, taxRate)
 
-	fmt.Print("Enter the expenses amount: ")
-	fmt.Scan(&expenses)
-
-	fmt.Print("Enter the tax rate: ")
-	fmt.Scan(&taxRate)
-
-	earningBeforeTax := revenue - expenses
 	fmt.Printf("Your earning before tax is: %.2f\n", earningBeforeTax)
-
-	earningAfterTax := earningBeforeTax - earningBeforeTax*taxRate/100
 	fmt.Printf("Your earning after tax is: %.2f\n", earningAfterTax)
-
-	ratio := earningBeforeTax / earningAfterTax
 	fmt.Printf("Your earning ratio is: %.2f\n", ratio)
+}
+
+func printAndAssign(text string) (result float64) {
+	fmt.Print(text)
+	fmt.Scan(&result)
+
+	return result
+}
+
+func Calculator(revenue, expenses, taxRate float64) (ebt, eat, ratio float64) {
+	ebt = revenue - expenses
+	eat = ebt - ebt*taxRate/100
+	ratio = ebt / eat
+
+	return ebt, eat, ratio
 }
