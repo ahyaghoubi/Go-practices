@@ -14,7 +14,7 @@ The first project in this repository is an **Investment Calculator** that calcul
 #### How to Use:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/go-practices.git
+   git clone https://github.com/ahyaghoubi/go-practices.git
    cd go-practices
    ```
 2. Navigate to the `investment-calculator` directory:
